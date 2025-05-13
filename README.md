@@ -23,24 +23,15 @@ A simple employee management system built using **Flask** and **MySQL**. This ap
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/employee-management-app.git
-cd employee-management-app
-```
+git clone https://github.com/ShivaniSagar120/CRUD_APP.git
+cd CRUD_APP
 
-### 2. Set Up a Virtual Environment (Optional but Recommended)
+### 2. Install Dependencies
 
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
-```
+pip install flask mysql-connector-python
 
-### 3. Install Dependencies
 
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configure MySQL Database
+### 3. Configure MySQL Database
 
 Create a MySQL database named `crud_app_db`:
 
@@ -76,7 +67,7 @@ def get_db_connection():
     )
 
 
-### 5. Run the Application
+### 4. Run the Application
 
 ```bash
 python app.py
