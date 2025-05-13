@@ -69,16 +69,15 @@ def get_db_connection():
 
 ### 4. Run the Application
 
-```bash
 python app.py
-```
+
 
 Visit `http://127.0.0.1:5000` in your browser.
 
 #Project Structure
 
 ├── app.py                # Main Flask application
-├── templates/            # HTML templates (not provided here)
+├── templates/            # HTML templates
 ├── requirements.txt      # Python dependencies
 └── README.md             # Project documentation
 
@@ -100,7 +99,7 @@ Visit `http://127.0.0.1:5000` in your browser.
 
 Flask==2.3.3
 mysql-connector-python==8.3.0
-```
+
 
 #Security Note
 
