@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Employee Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: #333;
+    }
+    .input-box {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      font-size: 16px;
+    }
+    .input-box:focus {
+      border-color: #6a11cb;
+      outline: none;
+      background-color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #2575fc;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #6a11cb;
+    }
+    a:hover {
+      color: #2575fc;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Add Employee Details</h2>
+    <form method="POST">
+      <input type="text" name="name" class="input-box" placeholder="Employee Name" required>
+      <input type="email" name="email" class="input-box" placeholder="Employee Email" required>
+      <input type="text" name="phone" class="input-box" placeholder="Phone Number" required>
+      <input type="text" name="department" class="input-box" placeholder="Department">
+      <input type="date" name="joining_date" class="input-box" required>
+      <button type="submit">Add Employee</button>
+    </form>
+    <a href="/">← Back to Dashboard</a>
+  </div>
+</body>
+</html>

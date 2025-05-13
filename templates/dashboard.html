@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f4f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .dashboard-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: #333;
+    }
+    .info-box {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f1f1f1;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .info-box h3 {
+      margin-top: 0;
+      font-weight: 500;
+    }
+    .btn {
+      display: inline-block;
+      margin: 5px 5px 0 0;
+      padding: 10px 16px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #2575fc;
+    }
+
+
+
+#usersTable {
+  font-size: 14px;
+}
+
+#usersTable th, #usersTable td {
+  text-align: left;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.dataTables_wrapper {
+  margin-top: 20px;
+}
+
+
+
+
+  </style>
+
+  <script>
+
+    alert("test");
+  $(document).ready(function() {
+    $('#usersTable').DataTable({
+      pageLength: 5,
+      lengthMenu: [5, 10, 20],
+      columnDefs: [{ orderable: false, targets: 6 }]
+    });
+  });
+</script>
+
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Admin Dashboard</h2>
+
+
+<div class="info-box">
+  <table id="usersTable" class="display" style="width:100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Department</th>
+        <th>Joining Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in employees %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.department }}</td>
+        <td>{{ user.joining_date }}</td>
+        <td>
+          <a href="/edit/{{ user.id }}" class="btn">Edit</a>
+          <a href="/delete/{{ user.id }}" class="btn" style="background-color:#d9534f;">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+    
+
+    <div class="info-box">
+      <h3>Welcome, {{ session['user_name'] }}</h3>
+      <p>Email: {{ session['user_email'] }}</p>
+      <p>Total Employees: {{ total_employees }}</p>
+    </div>
+
+    <div class="info-box">
+      <a href="/add" class="btn">Add Employee</a>
+      <a href="/logout" class="btn">Logout</a>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Blurred background image */
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("/static/iq_img.png");
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px);
+      z-index: -1;
+    }
+
+    /* Centered page title */
+    .page-title {
+      text-align: center;
+      font-size: 34px;
+      color: whitesmoke;
+      font-weight: bold;
+      margin-top: 50px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Login container */
+    .form-box {
+      position: relative;
+      max-width: 400px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .input-box {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2575fc;
+    }
+
+    .alert {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      color: #721c24;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+
+    .alert.success {
+      background-color: #d4edda;
+      color: #155724;
+      border-color: #c3e6cb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="background-image"></div>
+
+  <!-- Centered Page Title -->
+  <div class="page-title">EMPLOYEE MANAGEMENT SYSTEM</div>
+
+  <!-- Login Form -->
+  <div class="form-box">
+    <h2>Login</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/login">
+      <input type="email" name="email" class="input-box" placeholder="Email" required>
+      <input type="password" name="password" class="input-box" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+</body>
+</html>
